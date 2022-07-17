@@ -76,6 +76,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onPostCreate(Bundle bundle) {
+        super.onPostCreate(bundle);
+
+        if (currentItem != -1)
+            employeeListView.smoothScrollToPosition(currentItem);
+
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -219,8 +228,6 @@ public class MainActivity extends AppCompatActivity {
 
         if (currentItem == -1)
             currentView = null;
-        else
-            employeeListView.smoothScrollToPosition(currentItem);
 
         int index = bundle.getInt("humanToEdit", -1);
         if (index != -1) {
@@ -364,6 +371,8 @@ public class MainActivity extends AppCompatActivity {
                         ((ArrayAdapter<Human>)(employeeListView.getAdapter()))
                                 .notifyDataSetChanged();
                         humanToEdit = null;
+
+                        employeeListView.smoothScrollToPosition(currentItem);
                     }
                     else {
                         Human newHuman = new Human(
