@@ -60,14 +60,17 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:text="@string/birthdate"
-            android:padding="10dp"/>
+            android:padding="10dp"
+            android:layout_span="2"/>
+    </TableRow>
+    <TableRow>
         <DatePicker
             android:layout_weight="1"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
             android:datePickerMode="spinner"
             android:calendarViewShown="false"
-            android:id="@+id/date_picker" />
+            android:id="@+id/date_picker"
+            android:layout_span="2"/>
     </TableRow>
 </TableLayout>
